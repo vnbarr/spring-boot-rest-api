@@ -2,7 +2,7 @@
 
 ## Cloning the project
 
-    git clone https://
+    git clone https://github.com/vnbarr/spring-boot-rest-api.git
 
 ### Installing dependencies locally
 
