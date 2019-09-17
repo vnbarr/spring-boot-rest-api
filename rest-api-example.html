@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Financial Importer documentation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="https://github.com/adrobisch/raml-tools">
+
+    <script type="text/javascript">
+        var protocol = ((document.location.protocol === 'https:') ? 'https:': 'http:');
+        document.write('<link rel="stylesheet" href="' + protocol + '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">');
+        document.write('<script type="text/javascript" src="' + protocol + '//code.jquery.com/jquery-1.11.0.min.js"><\/sc' + 'ript>');
+        document.write('<script type="text/javascript" src="' + protocol + '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"><\/sc' + 'ript>');
+        document.write('<link rel="stylesheet" href="' + protocol + '//yandex.st/highlightjs/8.0/styles/default.min.css">');
+        document.write('<script type="text/javascript" src="' + protocol + '//yandex.st/highlightjs/8.0/highlight.min.js"><\/sc' + 'ript>');
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style>
+      .parent {
+    color: #999;
+}
+.list-group-item > .badge {
+    float: none;
+    margin-right: 6px;
+}
+.panel-title > .block > .methods {
+    float: right;
+}
+.badge {
+    border-radius: 0;
+    text-transform: uppercase;
+    width: 70px;
+    font-weight: normal;
+    color: #f3f3f6;
+    line-height: normal;
+}
+.block .badge {
+    visibility: hidden;
+}
+.block.collapsed .badge {
+    visibility: visible;
+}
+.badge_get {
+    background-color: #63a8e2;
+}
+.badge_post {
+    background-color: #6cbd7d;
+}
+.badge_put {
+    background-color: #22bac4;
+}
+.badge_delete {
+    background-color: #d26460;
+}
+.block {
+    display: block;
+}
+.list-group, .panel-group {
+    margin-bottom: 0;
+}
+.panel-group .panel+.panel-white {
+    margin-top: 0;
+}
+.panel-group .panel-white {
+    border-bottom: 1px solid #F5F5F5;
+    border-radius: 0;
+}
+.panel-white:last-child {
+    border-bottom-color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.panel-white .panel-heading {
+    background: white;
+}
+.tab-pane ul {
+    padding-left: 2em;
+}
+.tab-pane h2 {
+    font-size: 1.2em;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ddd;
+}
+.tab-pane h3 {
+    font-size: 1.1em;
+    font-style: italic;
+}
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+#sidebar {
+    margin-top: 30px;
+}
+.resource-description {
+    border-bottom: 1px solid #ddd;
+    background: #fcfcfc;
+    padding: 15px 15px 0 15px;
+    margin: -15px -15px 10px -15px;
+}
+.list-group .badge {
+    float: left;
+}
+.method_description {
+    margin-left: 85px;
+}
+.method_description p:last-child {
+    margin: 0;
+}
+.property-name {
+  font-weight: bold;
+}
+.property-type, .property-required {
+font-style: italic;
+}
+
+.panel-heading p {
+    display: inline;
+}
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9" role="main">
+                <div class="page-header">
+                    <h1>Financial Importer documentation <small>version v1</small></h1>
+                    <p><a href="http://localhost:8080/">http://localhost:8080/</a></p>
+
+                    
+                </div>
+                <h2>Resources</h2>
+                
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 id="9139a5a612e9824ba5c669d07edfa4ea" class="panel-title">
+                                
+                                    companies
+                                
+                                
+                            </h3>
+                        </div>
+
+                        <div class="panel-body">
+                            
+                                <div class="resource-description">
+                                    <p>Companies with Financial information</p>
+                                </div>
+                            
+
+                            <div class="panel-group">
+                                <div class="panel panel-white">
+
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <span class="parent"></span>/companies
+        </h4>
+    </div>
+
+    <div id="panel_9139a5a612e9824ba5c669d07edfa4ea" class="panel-collapse">
+        <div class="panel-body">
+            <div class="list-group">
+                
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+            <a data-toggle="collapse" href="#9139a5a612e9824ba5c669d07edfa4ea_get">
+                <span class="badge badge_get">get</span>
+            </a>
+            &nbsp;<p>Returns list of companies under the system</p>
+    </div>
+    <div id="9139a5a612e9824ba5c669d07edfa4ea_get" class="panel-collapse collapse">
+        <div class="panel-body">
+            <!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#9139a5a612e9824ba5c669d07edfa4ea_get_request" data-toggle="tab">Request</a>
+    </li>
+    
+        <li>
+            <a href="#9139a5a612e9824ba5c669d07edfa4ea_get_response" data-toggle="tab">Response</a>
+        </li>
+    
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="9139a5a612e9824ba5c669d07edfa4ea_get_request">
+        
+
+        
+
+        
+            <h3>Query Parameters</h3>
+            <ul>
+                
+                  <li>
+    <strong>hasFinancial</strong>
+    <em>
+      
+      
+         (boolean)
+      
+      
+    </em>
+
+  
+
+  
+  
+</li>
+                
+            </ul>
+        
+
+        
+    </div>
+
+    
+        <div class="tab-pane" id="9139a5a612e9824ba5c669d07edfa4ea_get_response">
+            
+                <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
+<p>Returns list of companies</p>
+
+
+    
+
+
+
+  <h3>Body</h3>
+    
+      <div class="body-type">
+    <strong class="body-label">Type:</strong> <code id="key">application/json</code>
+</div>
+
+
+
+<div class="body-example">
+    <strong class="body-label">Example:</strong>
+    <pre><code class="json">[
+  {
+    &quot;updated&quot;: &quot;2019-03-25&quot;,
+    &quot;created&quot;: &quot;2019-03-25&quot;,
+    &quot;id&quot;: 3,
+    &quot;name&quot;: &quot;Facebook&quot;,
+    &quot;client&quot;: {
+      &quot;updated&quot;: &quot;2019-03-25&quot;,
+      &quot;created&quot;: &quot;2019-03-25&quot;,
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;DEMO&quot;
+    }
+  },
+  {
+    &quot;updated&quot;: &quot;2019-03-25&quot;,
+    &quot;created&quot;: &quot;2019-03-25&quot;,
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;Instagram&quot;,
+    &quot;client&quot;: {
+      &quot;updated&quot;: &quot;2019-03-25&quot;,
+      &quot;created&quot;: &quot;2019-03-25&quot;,
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;DEMO&quot;
+    }
+  },
+  {
+    &quot;updated&quot;: &quot;2019-03-25&quot;,
+    &quot;created&quot;: &quot;2019-03-25&quot;,
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Lyft&quot;,
+    &quot;client&quot;: {
+      &quot;updated&quot;: &quot;2019-03-25&quot;,
+      &quot;created&quot;: &quot;2019-03-25&quot;,
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;DEMO&quot;
+    }
+  },
+  {
+    &quot;updated&quot;: &quot;2019-03-25&quot;,
+    &quot;created&quot;: &quot;2019-03-25&quot;,
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Uber&quot;,
+    &quot;client&quot;: {
+      &quot;updated&quot;: &quot;2019-03-25&quot;,
+      &quot;created&quot;: &quot;2019-03-25&quot;,
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;DEMO&quot;
+    }
+  }
+]</code></pre>
+</div>
+
+
+      <hr/>
+    
+
+            
+        </div>
+    
+</div>
+        </div>
+    </div>
+</div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                
+                
+            </div>
+
+            <div class="col-md-3">
+                <div id="sidebar" class="hidden-print affix" role="complementary">
+                    <ul class="nav nav-pills nav-stacked">
+                        
+                            <li>
+                                <a href="#9139a5a612e9824ba5c669d07edfa4ea">
+                                    
+                                        companies
+                                    
+                                    
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

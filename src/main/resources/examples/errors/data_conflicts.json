@@ -1,0 +1,8 @@
+{
+  "internalCode": "105",
+  "timestamp": "date",
+  "status": "DATA_CONFLICT",
+  "keyword": "entity identifier goes here",
+  "message": "message goes here",
+  "debugMessage": "information for developers"
+}

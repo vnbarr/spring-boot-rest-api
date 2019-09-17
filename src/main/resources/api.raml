@@ -1,0 +1,206 @@
+#%RAML 0.8
+title: Spring boot rest api example
+version: v1
+baseUri: http://localhost:8080/
+
+protocols:
+  - HTTP
+
+/ping:
+  displayName: ping
+  description: API state
+  get:
+    description: Ping endpoint to check if the service is running
+    responses:
+      200:
+        description: API is up and running
+        body:
+          application/json:
+            example: |
+              {
+                "version": "v0.0.1"
+              }
+      500:
+        description: Internal error
+        body:
+          application/json:
+            schema: error
+            example: !include ./examples/errors/unknown.json
+
+/companies:
+  displayName: companies
+  description: Companies
+  get:
+    description: Returns list of companies under the system
+    queryParameters:
+      deleted:
+        type: boolean
+        required: false
+    responses:
+      200:
+        description: Returns list of companies
+        body:
+          application/json:
+            example: !include ./examples/response/companies_response.json
+
+  /{companyId}:
+    post:
+        description: Creates a company
+        body:
+            application/json:
+                example: !include ./examples/body/company_request.json
+        responses:
+            201:
+                description: Returns company created information
+            body:
+              application/json:
+                example: !include ./examples/response/company_response.json
+            409:
+                description: Company already is in our system. Keywords 'company'
+                body:
+                  application/json:
+                      schema: error
+                      example: !include ./examples/errors/data_conflicts.json
+            400:
+                description: Invalid or missing parameters. Keywords can be 'name' or 'website'
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/bad_request.json
+            500:
+                description: Unknown error
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/unknown.json
+    put:
+        description: Updates a company
+        body:
+            application/json:
+                example: !include ./examples/body/company_edit_request.json
+        responses:
+            200:
+                description: Returns company updated information
+                body:
+                  application/json:
+                    example: !include ./examples/response/company_response.json
+            404:
+                description: Company isn't present in our system.
+                body:
+                  application/json:
+                      schema: error
+                      example: !include ./examples/errors/not_found.json
+            400:
+                description: Invalid or missing parameters. Keywords can be 'name' or 'website'
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/bad_request.json
+            500:
+                description: Unknown error
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/unknown.json
+
+    delete:
+        description: Deletes a company
+        responses:
+            200:
+                description: Company successfully deleted
+            404:
+                description: Company isn't present in our system.
+                body:
+                  application/json:
+                      schema: error
+                      example: !include ./examples/errors/not_found.json
+            500:
+                description: Unknown error
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/unknown.json
+
+  /bulk:
+    post:
+        description: Creates multiple companies
+        body:
+            application/json:
+                example: !include ./examples/body/companies_request.json
+        responses:
+            201:
+                description: Returns companies created information
+            body:
+              application/json:
+                example: !include ./examples/response/companies_response.json
+            409:
+                description: Company already is in our system. Keywords 'company'
+                body:
+                  application/json:
+                      schema: error
+                      example: !include ./examples/errors/data_conflicts.json
+            400:
+                description: Invalid or missing parameters. Keywords can be 'name' or 'website'
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/bad_request.json
+            500:
+                description: Unknown error
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/unknown.json
+    put:
+        description: Updates multiple companies
+        body:
+            application/json:
+                example: !include ./examples/body/companies_edit_request.json
+        responses:
+            200:
+                description: Returns companies updated information
+                body:
+                  application/json:
+                    example: !include ./examples/response/companies_response.json
+            404:
+                description: Company isn't present in our system.
+                body:
+                  application/json:
+                      schema: error
+                      example: !include ./examples/errors/not_found.json
+            400:
+                description: Invalid or missing parameters. Keywords can be 'name' or 'website'
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/bad_request.json
+            500:
+                description: Unknown error
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/unknown.json
+
+    delete:
+        description: Deletes multiple companies
+        body:
+            application/json:
+                example: |
+                 [
+                    2,3
+                  ]
+        responses:
+            200:
+                description: Companies successfully deleted
+            404:
+                description: Company isn't present in our system.
+                body:
+                  application/json:
+                      schema: error
+                      example: !include ./examples/errors/not_found.json
+            500:
+                description: Unknown error
+                body:
+                    application/json:
+                        schema: error
+                        example: !include ./examples/errors/unknown.json

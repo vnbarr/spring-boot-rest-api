@@ -1,0 +1,9 @@
+{
+  "internalCode": "103 or 102",
+  "timestamp": "date",
+  "status": "BAD_REQUEST",
+  "keyword": "entity identifier goes here",
+  "message": "message goes here",
+  "debugMessage": "information for developers"
+}
+
