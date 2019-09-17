@@ -52,9 +52,9 @@ protocols:
         responses:
             201:
                 description: Returns company created information
-            body:
-              application/json:
-                example: !include ./examples/response/company_response.json
+                body:
+                  application/json:
+                    example: !include ./examples/response/company_response.json
             409:
                 description: Company already is in our system. Keywords 'company'
                 body:
@@ -130,9 +130,9 @@ protocols:
         responses:
             201:
                 description: Returns companies created information
-            body:
-              application/json:
-                example: !include ./examples/response/companies_response.json
+                body:
+                  application/json:
+                    example: !include ./examples/response/companies_response.json
             409:
                 description: Company already is in our system. Keywords 'company'
                 body:
