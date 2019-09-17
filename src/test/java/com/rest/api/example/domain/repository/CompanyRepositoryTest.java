@@ -61,26 +61,22 @@ public class CompanyRepositoryTest {
 
     @Test
     public void testSoftDeleteById() {
-        Company companyBefore = companyRepository.getOne(4L);
-        Assertions.assertThat(companyBefore.isDeleted()).isFalse();
         int rowCount = companyRepository.softDeleteById(4L);
+
         Assertions.assertThat(rowCount).isEqualTo(1);
         Company companyAfter = companyRepository.getOne(4L);
-        Assertions.assertThat(companyAfter.isDeleted()).isTrue();
+        assertTrue(companyAfter.isDeleted());
     }
 
     @Test
     public void testSoftDeleteByIds() {
-        Company companyBefore = companyRepository.getOne(3L);
-        Assertions.assertThat(companyBefore.isDeleted()).isFalse();
-        companyBefore = companyRepository.getOne(4L);
-        Assertions.assertThat(companyBefore.isDeleted()).isFalse();
         int rowCount = companyRepository.softDeleteByIds(Arrays.asList(3L, 4L));
         Assertions.assertThat(rowCount).isEqualTo(2);
+
         Company companyAfter = companyRepository.getOne(3L);
-        Assertions.assertThat(companyAfter.isDeleted()).isTrue();
+        assertTrue(companyAfter.isDeleted());
         companyAfter = companyRepository.getOne(4L);
-        Assertions.assertThat(companyAfter.isDeleted()).isTrue();
+        assertTrue(companyAfter.isDeleted());
     }
 
     @Test

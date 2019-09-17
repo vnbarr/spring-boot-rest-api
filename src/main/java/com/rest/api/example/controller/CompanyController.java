@@ -56,6 +56,7 @@ public class CompanyController {
 
     @ResponseBody
     @PutMapping
+    //TODO Update should receive id by path variable
     public ResponseEntity<Company> update(@RequestBody CompanyRequest companyToUpdate) throws DuplicatedEntityException, MissingParameterException, EntityNotFoundException {
         Company company = companyService.update(companyToUpdate);
         return ResponseEntity.ok(company);
@@ -73,5 +74,12 @@ public class CompanyController {
     public ResponseEntity<Company> getById(@PathVariable Long id) throws EntityNotFoundException {
         Company company = companyService.findById(id);
         return ResponseEntity.ok(company);
+    }
+
+    @ResponseBody
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity delete(@PathVariable Long id) throws EntityNotFoundException {
+        companyService.delete(id);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 }

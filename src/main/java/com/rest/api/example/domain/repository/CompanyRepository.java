@@ -21,7 +21,7 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     @Modifying
     @Query("update com.rest.api.example.domain.model.Company c set c.deleted = true where c.id in :ids and c.deleted is false")
-    int softDeleteByIds(@Param("id") List<Long> ids);
+    int softDeleteByIds(@Param("ids") List<Long> ids);
 
     Company findByNameAndDeleted(String name, boolean deleted);
 
