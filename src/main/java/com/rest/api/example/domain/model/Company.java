@@ -1,6 +1,8 @@
 package com.rest.api.example.domain.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by vbarros on 16/09/2019 .
@@ -8,10 +10,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "companies")
 public class Company extends AbstractPersistable<Long>  {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -21,11 +19,6 @@ public class Company extends AbstractPersistable<Long>  {
 
     @Column
     private boolean deleted;
-
-
-    public Company() {
-
-    }
 
     @Override
     public Long getId() {

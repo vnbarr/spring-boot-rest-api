@@ -1,6 +1,5 @@
 package com.rest.api.example.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rest.api.example.service.CompanyService;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -25,8 +24,7 @@ public class PingControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
-    private ObjectMapper mapper;
+
     @MockBean
     private CompanyService companyService;
 

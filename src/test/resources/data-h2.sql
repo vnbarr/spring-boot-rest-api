@@ -6,4 +6,4 @@ INSERT INTO companies(id,name,updated,created, deleted, website) VALUES (3,'Troc
 
 INSERT INTO companies(id,name,updated,created, deleted, website) VALUES (4,'Uber',now(),now(),false,'https://www.uber.com');
 
-INSERT INTO companies(id,name,updated,created, deleted, website) VALUES (5,'Fruta',now(),now(),true,'https://www.uber.com');
+INSERT INTO companies(id,name,updated,created, deleted, website) VALUES (5,'Fruta',now(),now(),true,'https://www.fruta.com');

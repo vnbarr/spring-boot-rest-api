@@ -36,8 +36,6 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = CompanyController.class)
 public class CompanyControllerTest {
-
-
     @Autowired
     protected WebApplicationContext wac;
 
@@ -47,6 +45,45 @@ public class CompanyControllerTest {
     @MockBean
     private CompanyService companyService;
 
+
+    @Test
+    public void testGetAllCompaniesWithNoParameters() throws Exception {
+        List<Company> companies = new ArrayList<Company>();
+        companies.add(new Company());
+        when(companyService.findAll(null)).thenReturn(companies);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.
+                get("/companies"))
+                .andExpect(MockMvcResultMatchers.status().is2xxSuccessful()).andReturn();
+        String responseBodyContent = result.getResponse().getContentAsString();
+        JSONArray jsonResponse = new JSONArray(responseBodyContent);
+        assertEquals(1L, jsonResponse.length());
+    }
+
+    @Test
+    public void testGetAllCompaniesWithDeletedTrue() throws Exception {
+        List<Company> companies = new ArrayList<Company>();
+        companies.add(new Company());
+        when(companyService.findAll(Boolean.TRUE)).thenReturn(companies);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.
+                get("/companies?deleted=true"))
+                .andExpect(MockMvcResultMatchers.status().is2xxSuccessful()).andReturn();
+        String responseBodyContent = result.getResponse().getContentAsString();
+        JSONArray jsonResponse = new JSONArray(responseBodyContent);
+        assertEquals(1L, jsonResponse.length());
+    }
+
+    @Test
+    public void testGetAllCompaniesWithDeletedFalse() throws Exception {
+        List<Company> companies = new ArrayList<Company>();
+        companies.add(new Company());
+        when(companyService.findAll(Boolean.FALSE)).thenReturn(companies);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.
+                get("/companies?deleted=false"))
+                .andExpect(MockMvcResultMatchers.status().is2xxSuccessful()).andReturn();
+        String responseBodyContent = result.getResponse().getContentAsString();
+        JSONArray jsonResponse = new JSONArray(responseBodyContent);
+        assertEquals(1L, jsonResponse.length());
+    }
 
     @Test
     public void testGetNonExistingCompanyByIdThrowsError() throws Exception {

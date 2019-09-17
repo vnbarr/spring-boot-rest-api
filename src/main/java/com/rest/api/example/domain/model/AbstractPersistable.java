@@ -23,8 +23,8 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 public abstract class AbstractPersistable<PK extends Serializable> implements Persistable<PK> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private PK id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected PK id;
 
     public PK getId() {
         return id;

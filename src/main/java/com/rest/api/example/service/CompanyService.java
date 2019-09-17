@@ -12,7 +12,7 @@ import java.util.List;
  * Created by vbarros on 16/09/2019.
  */
 public interface CompanyService {
-    List<Company> findAll();
+    List<Company> findAll(Boolean deleted);
     Company findById(Long id);
     Long getSize();
     List<Company> create(List<CompanyRequest> companiesToCreate) throws DuplicatedEntityException, MissingParameterException;

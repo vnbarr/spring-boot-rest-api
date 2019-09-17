@@ -33,8 +33,11 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> findAll() {
-        return companyRepository.findAllByOrderByNameAsc();
+    public List<Company> findAll(Boolean deleted) {
+        if (deleted == null){
+            return companyRepository.findAllByOrderByNameAsc();
+        }
+        return companyRepository.findAllByDeletedOrderByNameAsc(deleted);
     }
 
     @Override

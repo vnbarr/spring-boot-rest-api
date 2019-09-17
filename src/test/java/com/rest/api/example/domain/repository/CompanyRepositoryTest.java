@@ -26,6 +26,15 @@ public class CompanyRepositoryTest {
     private CompanyRepository companyRepository;
 
     @Test
+    public void testSaveCompany(){
+        Company company = new Company();
+        company.setName("Test add");
+        company.setWebsite("test.com.ar");
+        Company c = companyRepository.save(company);
+        assertNotNull(c.getId());
+    }
+
+    @Test
     public void testGetCompanyByNameAndDeleted() {
         Company company = companyRepository.findByNameAndDeleted("Uber", false);
         assertNotNull(company);

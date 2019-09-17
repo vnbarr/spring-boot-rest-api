@@ -29,8 +29,8 @@ public class CompanyController {
 
     @ResponseBody
     @GetMapping
-    public ResponseEntity<Collection<Company>> getCompanies() {
-        return ResponseEntity.ok(companyService.findAll());
+    public ResponseEntity<Collection<Company>> getCompanies(@RequestParam(value = "deleted", required = false) Boolean deleted) {
+        return ResponseEntity.ok(companyService.findAll(deleted));
     }
 
     @ResponseBody

@@ -24,4 +24,6 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     int softDeleteByIds(@Param("id") List<Long> ids);
 
     Company findByNameAndDeleted(String name, boolean deleted);
+
+    List<Company> findAllByDeletedOrderByNameAsc(Boolean deleted);
 }
